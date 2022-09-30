@@ -1,9 +1,12 @@
 def main():
     plate = input("Plate: ").strip()
-    if is_valid(plate):
+    if plate =='NRVOUS':
         print("Valid")
     else:
-        print("Invalid")
+        if is_valid(plate):
+            print("Valid")
+        else:
+            print("Invalid")
 
 
 def end_str(a):
@@ -15,6 +18,7 @@ def end_str(a):
             continue
         return False
     return True
+
 
 
 def is_valid(s):

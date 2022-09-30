@@ -44,33 +44,36 @@ while True:
             pass
     else:
         # if user input month name
-        try:
-            m,d,y = user.split(" ")
-            if ("," in d):
+        if(',' not in user):
+            continue
+        else:
+            try:
+                m,d,y = user.split(" ")
+                if ("," in d):
                 # if user type month name like => september 8, 2021
                 # split with white space's and remove ',' from day
-                d = d.replace(","," ")
-            y = int(y)
-            d = int(d)
+                    d = d.replace(","," ")
+                y = int(y)
+                d = int(d)
             # if day input is greater than 31
-            if d > 31 or d < 1:
+                if d > 31 or d < 1:
                 # pass this round
-                continue
-            if y < 999:
-                continue
-         
-            if m.title() in dates:
-                # store index of month in loc
-                location = dates.index(m.title())
+                    continue
+                if y < 999:
+                    continue
+
+                if m.title() in dates:
+
+                    location = dates.index(m.title())
                 # if month and day are equal
                 # increment month one
-                if (location == d):
-                    location+=1
+                    if (location == d):
+                        location+=1
                 # print answer and break loop
-                print(f"{y}-{location:02}-{d:02}")
-                break
-            else:
-                continue
+                    print(f"{y}-{location:02}-{d:02}")
+                    break
+                else:
+                    continue
 
-        except:
-            pass
+            except:
+                pass
